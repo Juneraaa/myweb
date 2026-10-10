@@ -13,7 +13,7 @@
    <!--main css file should not be removed -->
     <link rel="stylesheet" href="css/index.css">
     <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js" defer></script>
 </head>
 <body>
     <!--contains all the div-->
@@ -23,7 +23,7 @@
     <!--mouse  follower-->
     <!--loader-->
         <div id="loader">
-            <span class="color">Su</span>Pujun 
+            <span class="color">Su</span>Pujun
         </div>
     <!--loader-end-->
     <!--link-screen-->
@@ -96,10 +96,12 @@
             </div>
             <!--header image-->
             <div class="header-image">
-            <img src="images/man.webp" loading="lazy" alt="logo">
+            <img src="images/man.webp" 
+            alt="logo">
             </div>
             <!--header image end-->
         </div>
+        <!-- srcset="images/man-480w.jpg 480w, images/man.webp 1750w"  -->
            <!--Header End-->
         <!--HomePage End-->
         <!--Main-Section End-->
@@ -220,8 +222,8 @@
 
 <!--！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！第二部分这里结束删除！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！-->
     <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/index.js" defer></script>
 	<script type="text/javascript">
         function sendEmail() {
             var name = $("#name");
