@@ -1,0 +1,31 @@
+cv:
+  name: 苏普军
+  label: 集成电路设计方向硕士研究生
+  email: supujun@foxmail.com
+  location: 上海，中国
+  image: ""
+  summary: 集成电路设计方向硕士研究生，关注微电子与集成电路设计。
+
+  social_networks:
+    - network: GitHub
+      username: Juneraaa
+
+  sections:
+    教育经历:
+      - institution: 复旦大学
+        location: 上海，中国
+        area: 集成电路设计
+        studyType: 硕士
+        start_date: 2025
+        end_date: 2028
+
+      - institution: 中国海洋大学
+        location: 青岛，中国
+        area: 微电子科学与工程
+        studyType: 工学学士
+        start_date: 2021
+        end_date: 2025
+
+    研究兴趣:
+      - name: 集成电路设计
+        keywords: "Integrated Circuit Design, Microelectronics"
