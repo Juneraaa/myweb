@@ -8,7 +8,9 @@ const fs = require("node:fs");
   const failedLocal = [];
   const page = await browser.newPage({ viewport: { width: 1365, height: 900 }, deviceScaleFactor: 1 });
   page.on("response", (r) => {
-    if (r.url().startsWith(base) && r.status() >= 400) failedLocal.push(r.url());
+    // Cloudflare Speed Brain can decline speculative prefetches; the actual navigation still succeeds.
+    const declinedPrefetch = r.request().headers()["sec-purpose"] === "prefetch" && r.headers()["cf-speculation-refused"];
+    if (r.url().startsWith(base) && r.status() >= 400 && !declinedPrefetch) failedLocal.push(`${r.status()} ${r.url()}`);
   });
   fs.mkdirSync("output/playwright", { recursive: true });
   try {
@@ -40,6 +42,7 @@ const fs = require("node:fs");
     await page.locator('.nav-link[href="/cv/"]').waitFor({ state: "visible" });
     await page.locator('.nav-link[href="/cv/"]').click();
     await page.waitForURL("**/cv/");
+    assert((await page.locator("article").innerText()).includes("复旦大学"), "Mobile navigation did not load the education page");
     assert.deepEqual(failedLocal, [], "Local assets returned HTTP errors");
     console.log(JSON.stringify({ desktop, mobileMenu: "passed", localAssetErrors: failedLocal, screenshots: "output/playwright" }));
   } finally {
