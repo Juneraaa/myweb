@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
+ruby '>= 3.2.0'
+
 gem 'jekyll'
+gem 'jekyll-sass-converter', '~> 3.1'
 
 # Core plugins that directly affect site building
 group :jekyll_plugins do
@@ -11,7 +14,6 @@ group :jekyll_plugins do
     gem 'jekyll-feed'
     gem 'jekyll-get-json'
     gem 'jekyll-imagemagick'
-    gem 'jekyll-jupyter-notebook'
     gem 'jekyll-link-attributes'
     gem 'jekyll-minifier'
     gem 'jekyll-paginate-v2'
